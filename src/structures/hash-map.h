@@ -6,7 +6,7 @@
 typedef struct Node
 {
     int key;
-    Contest value;
+    Contest *value;
     struct Node *next;
 } Node;
 
@@ -17,7 +17,14 @@ typedef struct HashMap
     Node **table;
 } HashMap;
 
+typedef struct SearchOutput
+{
+    int has_value;
+    Contest *value;
+} SearchOutput;
+
 HashMap make_hash_map();
 int insert_in_hash_map(HashMap *hash_map, Contest contest);
+SearchOutput search_in_hash_map(const HashMap hash_map, int key);
 
 #endif

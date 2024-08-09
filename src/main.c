@@ -29,14 +29,19 @@ int main(void)
     LoadContestsFromFileOutput result = load_contests_from_file(file_path);
 
     Contest *contests = result.contests;
-    HashMap hash_map = make_hash_map(10);
+    HashMap hash_map = make_hash_map(20);
 
     for (int i = 0; i < result.quantity; i++)
     {
         int index = insert_in_hash_map(&hash_map, contests[i]);
+    }
 
-        printf("Index(%d): ", index);
-        display(hash_map.table[index]->value);
+    SearchOutput searched = search_in_hash_map(hash_map, 6);
+
+    printf("Founded: %d\nValue: ", searched.has_value);
+    if (searched.has_value)
+    {
+        display(*searched.value);
     }
 
     free(result.contests);

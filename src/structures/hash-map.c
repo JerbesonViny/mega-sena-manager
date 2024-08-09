@@ -8,12 +8,24 @@ int hash(int value, int quantity_of_elements)
     return quantity_of_elements != 0 ? value % quantity_of_elements : 0;
 }
 
+Contest *make_constest_copy(const Contest constest)
+{
+    Contest *new_constest = malloc(sizeof(Contest));
+
+    new_constest->id = constest.id;
+    new_constest->date = constest.date;
+    new_constest->luckyNumbers = constest.luckyNumbers;
+
+    return new_constest;
+}
+
 Node *make_node(const Contest constest)
 {
     Node *node = malloc(sizeof(Node));
+    Contest *new_constest = make_constest_copy(constest);
 
     node->key = constest.id;
-    node->value = constest;
+    node->value = new_constest;
     node->next = NULL;
 
     return node;
@@ -107,4 +119,33 @@ int insert_in_hash_map(HashMap *hash_map, Contest contest)
     }
 
     return index;
+}
+
+SearchOutput search_in_hash_map(const HashMap hash_map, int key)
+{
+    SearchOutput output = {0, NULL};
+
+    int index = hash(key, hash_map.quantity_of_spaces);
+
+    if (hash_map.table[index] == NULL)
+    {
+        return output;
+    }
+
+    Node *node = hash_map.table[index];
+    int iterations = 0;
+    while (node)
+    {
+        iterations++;
+        if (node->key == key)
+        {
+            output.has_value = 1;
+            output.value = node->value;
+            return output;
+        }
+
+        node = node->next;
+    }
+
+    return output;
 }
