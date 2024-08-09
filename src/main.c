@@ -22,7 +22,7 @@ void display(Contest contest)
 
 int main(void)
 {
-    char *file_name = "sorteios.csv";
+    char *file_name = "testes.csv";
     char *extra_path = "./data";
     char *file_path = create_file_path(file_name, extra_path);
 
@@ -36,15 +36,7 @@ int main(void)
         int index = insert_in_hash_map(&hash_map, contests[i]);
     }
 
-    SearchOutput searched = search_in_hash_map(hash_map, 6);
-
-    printf("Founded: %d\nValue: ", searched.has_value);
-    if (searched.has_value)
-    {
-        display(*searched.value);
-    }
-
-    free(result.contests);
+    list_elements_on_hash_map(hash_map);
 
     return 0;
 }
