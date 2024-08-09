@@ -14,8 +14,11 @@ TYPE_FILES = ./src/types/date.h \
 				./src/types/contest.h \
 				./src/types/types.h
 
+STRUCTURES_FILES = 	./src/structures/hash-map.h \
+					./src/structures/hash-map.c
+
 compile: create-dependence-dirs
-	$(COMPILER) $(MAIN_FILE_PATH) $(TYPE_FILES) $(HELPERS_FILES) \
+	$(COMPILER) $(MAIN_FILE_PATH) $(TYPE_FILES) $(STRUCTURES_FILES) $(HELPERS_FILES) \
 	-o $(OUTPUT_FILE_PATH)
 
 create-dependence-dirs:
