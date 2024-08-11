@@ -8,29 +8,6 @@ int hash(int value, int quantity_of_elements)
     return quantity_of_elements != 0 ? value % quantity_of_elements : 0;
 }
 
-Contest *make_constest_copy(const Contest constest)
-{
-    Contest *new_constest = malloc(sizeof(Contest));
-
-    new_constest->id = constest.id;
-    new_constest->date = constest.date;
-    new_constest->luckyNumbers = constest.luckyNumbers;
-
-    return new_constest;
-}
-
-Node *make_node(const Contest constest)
-{
-    Node *node = malloc(sizeof(Node));
-    Contest *new_constest = make_constest_copy(constest);
-
-    node->key = constest.id;
-    node->value = new_constest;
-    node->next = NULL;
-
-    return node;
-}
-
 Node **make_table(int quantity_of_spaces)
 {
     Node **table = malloc(sizeof(Node **) * quantity_of_spaces);
@@ -95,24 +72,22 @@ Node *get_last_node(Node *current_node)
     return value;
 }
 
-int insert_in_hash_map(HashMap *hash_map, Contest contest)
+int insert_in_hash_map(HashMap *hash_map, Node *new_node, int key)
 {
     if (hash_map->quantity_of_elements / (float)hash_map->quantity_of_spaces >= 7 / 10.0)
     {
         resize_table(hash_map);
     }
 
-    int index = hash(contest.id, hash_map->quantity_of_spaces);
+    int index = hash(key, hash_map->quantity_of_spaces);
 
     if (hash_map->table[index] == NULL)
     {
         hash_map->quantity_of_elements++;
-        Node *node = make_node(contest);
-        hash_map->table[index] = node;
+        hash_map->table[index] = new_node;
     }
     else
     {
-        Node *new_node = make_node(contest);
         Node *last_node = get_last_node(hash_map->table[index]);
         last_node->next = malloc(sizeof(Node *));
         last_node->next = new_node;
@@ -148,37 +123,6 @@ SearchOutput search_in_hash_map(const HashMap hash_map, int key)
     }
 
     return output;
-}
-
-void list_elements_on_hash_map(const HashMap hash_map)
-{
-    printf("| %-25s |", "ID");
-    printf("| %-25s |", "Data");
-    printf("| %-60s |\n", "Numeros da sorte");
-
-    Node **table = hash_map.table;
-
-    for (int index = 0; index < hash_map.quantity_of_spaces; index++)
-    {
-        Node *node = table[index];
-
-        while (node)
-        {
-            Contest *contest = node->value;
-            Date date = contest->date;
-            int *luckyNumbers = contest->luckyNumbers;
-            char row[200];
-
-            sprintf(row, "%d", contest->id);
-            printf("| %-25s |", row);
-            sprintf(row, "%02d/%02d/%d", date.day, date.month, date.year);
-            printf("| %-25s |", row);
-            sprintf(row, "%d - %d - %d - %d - %d - %d", luckyNumbers[0], luckyNumbers[1], luckyNumbers[2], luckyNumbers[3], luckyNumbers[4], luckyNumbers[5]);
-            printf("| %-60s |\n", row);
-
-            node = node->next;
-        }
-    }
 }
 
 int delete_element_in_hash_map(HashMap *hash_map, const int key)

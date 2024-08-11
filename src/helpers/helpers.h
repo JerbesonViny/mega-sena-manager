@@ -3,5 +3,6 @@
 
 #include "files/files.h"
 #include "strings/strings.h"
+#include "nodes/nodes.h"
 
 #endif

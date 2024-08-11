@@ -5,6 +5,7 @@
 #include "helpers/helpers.h"
 #include "structures/hash-map.h"
 #include "controllers/controllers.h"
+#include "usecases/insert-contest/insert-contest.h"
 
 void display(Contest contest)
 {
@@ -78,7 +79,7 @@ int main(void)
 
     for (int i = 0; i < result.quantity; i++)
     {
-        int index = insert_in_hash_map(&hash_map, contests[i]);
+        int index = insert_contest(&hash_map, contests[i]);
     }
 
     int option = -1;

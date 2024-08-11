@@ -9,9 +9,13 @@ HELPERS_FILES = ./src/helpers/files/files.h \
 				./src/helpers/files/files.c \
 				./src/helpers/strings/strings.h \
 				./src/helpers/strings/strings.c \
+				./src/helpers/nodes/nodes.h \
+				./src/helpers/nodes/nodes.c \
 				./src/helpers/helpers.h
+
 TYPE_FILES = ./src/types/date.h \
 				./src/types/contest.h \
+				./src/types/contest.c \
 				./src/types/types.h
 
 STRUCTURES_FILES = 	./src/structures/hash-map.h \
@@ -34,6 +38,11 @@ CONTROLLERS_FILES = ./src/controllers/process-insert-contest/process-insert-cont
 SERVICES_FILES = 	./src/services/contest-metrics/contest-metrics.h \
 					./src/services/contest-metrics/contest-metrics.c
 
+USECASES_FILES =	./src/usecases/insert-contest/insert-contest.h \
+					./src/usecases/insert-contest/insert-contest.c \
+					./src/usecases/list-contests/list-contests.h \
+					./src/usecases/list-contests/list-contests.c
+
 compile: create-dependence-dirs
 	$(COMPILER) \
 	$(MAIN_FILE_PATH) \
@@ -42,6 +51,7 @@ compile: create-dependence-dirs
 	$(STRUCTURES_FILES) \
 	$(HELPERS_FILES) \
 	$(SERVICES_FILES) \
+	$(USECASES_FILES) \
 	-o $(OUTPUT_FILE_PATH)
 
 create-dependence-dirs:

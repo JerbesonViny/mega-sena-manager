@@ -20,7 +20,7 @@ void process_search_contest(const HashMap hash_map)
     {
         printf("\xE2\x9C\x85 Concurso encontrado!\n");
 
-        Contest *contest = searched.value;
+        Contest *contest = (Contest *)searched.value;
         Date date = contest->date;
         int *lucky_numbers = malloc(sizeof(int) * 6);
         lucky_numbers = contest->luckyNumbers;

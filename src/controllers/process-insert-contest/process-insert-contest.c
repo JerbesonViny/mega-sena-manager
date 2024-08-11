@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "process-insert-contest.h"
+#include "../../usecases/insert-contest/insert-contest.h"
 
 void process_insert_contest(HashMap *hash_map)
 {
@@ -65,7 +66,7 @@ void process_insert_contest(HashMap *hash_map)
                            date,
                            lucky_numbers};
 
-        int created = insert_in_hash_map(hash_map, contest);
+        int created = insert_contest(hash_map, contest);
 
         if (created)
         {

@@ -1,12 +1,12 @@
 #ifndef HASH_MAP_STRUCTURE_H
 #define HASH_MAP_STRUCTURE_H
 
-#include "../types/contest.h"
+#include "../types/types.h"
 
 typedef struct Node
 {
     int key;
-    Contest *value;
+    void *value;
     struct Node *next;
 } Node;
 
@@ -20,12 +20,11 @@ typedef struct HashMap
 typedef struct SearchOutput
 {
     int has_value;
-    Contest *value;
+    void *value;
 } SearchOutput;
 
 HashMap make_hash_map();
-int insert_in_hash_map(HashMap *hash_map, Contest contest);
+int insert_in_hash_map(HashMap *hash_map, Node *new_node, int key);
 SearchOutput search_in_hash_map(const HashMap hash_map, int key);
-void list_elements_on_hash_map(const HashMap hash_map);
 int delete_element_in_hash_map(HashMap *hash_map, const int key);
 #endif

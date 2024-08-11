@@ -3,6 +3,7 @@
 
 #include "../../helpers/helpers.h"
 #include "process-load-contests-from-file.h"
+#include "../../usecases/insert-contest/insert-contest.h"
 
 void process_load_contests_from_file(HashMap *hash_map)
 {
@@ -26,7 +27,7 @@ void process_load_contests_from_file(HashMap *hash_map)
         HashMap new_hash_map = make_hash_map(10);
         for (int i = 0; i < result.quantity; i++)
         {
-            int index = insert_in_hash_map(&new_hash_map, contests[i]);
+            int index = insert_contest(&new_hash_map, contests[i]);
         }
 
         *hash_map = new_hash_map;

@@ -16,7 +16,8 @@ int get_incidence_lucky_number_by_number(const HashMap hash_map, int number)
         while (node)
         {
             int *lucky_numbers = malloc(sizeof(int) * 6);
-            memcpy(lucky_numbers, node->value->luckyNumbers, 6 * sizeof(int));
+            Contest *contest = (Contest *)node->value;
+            memcpy(lucky_numbers, contest->luckyNumbers, 6 * sizeof(int));
 
             for (int lucky_number_index = 0; lucky_number_index < 6; lucky_number_index++)
             {
@@ -45,7 +46,8 @@ int get_number_of_contests_in_year(const HashMap hash_map, const int year)
 
         while (node)
         {
-            if (node->value->date.year == year)
+            Contest *contest = (Contest *)node->value;
+            if (contest->date.year == year)
             {
                 incidence++;
             }
