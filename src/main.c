@@ -4,6 +4,7 @@
 
 #include "helpers/helpers.h"
 #include "structures/hash-map.h"
+#include "controllers/controllers.h"
 
 void display(Contest contest)
 {
@@ -18,6 +19,46 @@ void display(Contest contest)
            contest.luckyNumbers[3],
            contest.luckyNumbers[4],
            contest.luckyNumbers[5]);
+}
+
+void display_features()
+{
+    printf("--- Opcoes ---\n1 - Inserir concurso\n2 - Buscar concurso\n3 - Remover concurso\n4 - Listar concursos\n5 - Carregar concursos de arquivo\n6 - Apresentar estatisticas\n0 - Sair\n");
+}
+
+void process_option(HashMap *hash_map, int option)
+{
+    // system("clear");
+    if (option == 1)
+    {
+        process_insert_contest(hash_map);
+    }
+    else if (option == 2)
+    {
+        process_search_contest(*hash_map);
+    }
+    else if (option == 3)
+    {
+        process_delete_contest(hash_map);
+    }
+    else if (option == 4)
+    {
+        process_list_contests(*hash_map);
+    }
+    else if (option == 5)
+    {
+        process_load_contests_from_file(hash_map);
+    }
+    else if (option == 0)
+    {
+        system("clear");
+        printf("\xE2\x9C\x85 Sistema encerrado com sucesso!\n");
+        exit(0);
+    }
+    else
+    {
+        printf("\xE2\x9D\x8C Opcao invalida! Tente novamente\n");
+    }
 }
 
 int main(void)
@@ -36,10 +77,17 @@ int main(void)
         int index = insert_in_hash_map(&hash_map, contests[i]);
     }
 
-    list_elements_on_hash_map(hash_map);
-    int has_deleted = delete_element_in_hash_map(&hash_map, 36);
-    printf("--- Deleted: %d\n", has_deleted);
-    list_elements_on_hash_map(hash_map);
+    int option = -1;
+    // system("clear");
+
+    while (option != 0)
+    {
+        display_features();
+        printf("Escolha uma das opcoes disponiveis: ");
+        scanf("%d", &option);
+        process_option(&hash_map, option);
+        getchar();
+    }
 
     return 0;
 }

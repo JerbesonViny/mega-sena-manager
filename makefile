@@ -17,8 +17,25 @@ TYPE_FILES = ./src/types/date.h \
 STRUCTURES_FILES = 	./src/structures/hash-map.h \
 					./src/structures/hash-map.c
 
+CONTROLLERS_FILES = ./src/controllers/process-insert-contest/process-insert-contest.h \
+					./src/controllers/process-insert-contest/process-insert-contest.c \
+					./src/controllers/process-list-contests/process-list-contests.h \
+					./src/controllers/process-list-contests/process-list-contests.c \
+					./src/controllers/process-search-contest/process-search-contest.h \
+					./src/controllers/process-search-contest/process-search-contest.c \
+					./src/controllers/process-delete-contest/process-delete-contest.h \
+					./src/controllers/process-delete-contest/process-delete-contest.c \
+					./src/controllers/process-load-contests-from-file/process-load-contests-from-file.h \
+					./src/controllers/process-load-contests-from-file/process-load-contests-from-file.c \
+					./src/controllers/controllers.h
+
 compile: create-dependence-dirs
-	$(COMPILER) $(MAIN_FILE_PATH) $(TYPE_FILES) $(STRUCTURES_FILES) $(HELPERS_FILES) \
+	$(COMPILER) \
+	$(MAIN_FILE_PATH) \
+	$(TYPE_FILES) \
+	$(CONTROLLERS_FILES) \
+	$(STRUCTURES_FILES) \
+	$(HELPERS_FILES) \
 	-o $(OUTPUT_FILE_PATH)
 
 create-dependence-dirs:
