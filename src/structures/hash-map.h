@@ -27,5 +27,5 @@ HashMap make_hash_map();
 int insert_in_hash_map(HashMap *hash_map, Contest contest);
 SearchOutput search_in_hash_map(const HashMap hash_map, int key);
 void list_elements_on_hash_map(const HashMap hash_map);
-
+int delete_element_in_hash_map(HashMap *hash_map, const int key);
 #endif

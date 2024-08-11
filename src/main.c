@@ -29,13 +29,16 @@ int main(void)
     LoadContestsFromFileOutput result = load_contests_from_file(file_path);
 
     Contest *contests = result.contests;
-    HashMap hash_map = make_hash_map(20);
+    HashMap hash_map = make_hash_map(10);
 
     for (int i = 0; i < result.quantity; i++)
     {
         int index = insert_in_hash_map(&hash_map, contests[i]);
     }
 
+    list_elements_on_hash_map(hash_map);
+    int has_deleted = delete_element_in_hash_map(&hash_map, 36);
+    printf("--- Deleted: %d\n", has_deleted);
     list_elements_on_hash_map(hash_map);
 
     return 0;
