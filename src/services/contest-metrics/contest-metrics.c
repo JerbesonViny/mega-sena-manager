@@ -33,3 +33,26 @@ int get_incidence_lucky_number_by_number(const HashMap hash_map, int number)
 
     return incidence;
 };
+
+int get_number_of_contests_in_year(const HashMap hash_map, const int year)
+{
+    Node **table = hash_map.table;
+
+    int incidence = 0;
+    for (int index = 0; index < hash_map.quantity_of_spaces; index++)
+    {
+        Node *node = table[index];
+
+        while (node)
+        {
+            if (node->value->date.year == year)
+            {
+                incidence++;
+            }
+
+            node = node->next;
+        }
+    }
+
+    return incidence;
+};

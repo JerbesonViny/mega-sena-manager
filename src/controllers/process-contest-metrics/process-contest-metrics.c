@@ -21,13 +21,22 @@ void process_contest_metrics(const HashMap hash_map)
 
         if (option == 1)
         {
-
             printf("Informe o numero que voce deseja obter a quantidade de vezes que ele apareceu: ");
             scanf("%d", &number);
 
             int incidence = get_incidence_lucky_number_by_number(hash_map, number);
 
             printf("Quantidade de vezes que esse numero foi sorteado: %d\n", incidence);
+            keep_receiving_values = 0;
+        }
+        else if (option == 4)
+        {
+            printf("Informe o ano que voce deseja buscar a quantidade de concursos nesse ano que foi informado: ");
+            scanf("%d", &number);
+
+            int incidence = get_number_of_contests_in_year(hash_map, number);
+
+            printf("Quantidade de concursos feitos no ano informado (%04d): %d\n", number, incidence);
             keep_receiving_values = 0;
         }
         else
