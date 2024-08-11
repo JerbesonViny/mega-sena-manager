@@ -27,7 +27,12 @@ CONTROLLERS_FILES = ./src/controllers/process-insert-contest/process-insert-cont
 					./src/controllers/process-delete-contest/process-delete-contest.c \
 					./src/controllers/process-load-contests-from-file/process-load-contests-from-file.h \
 					./src/controllers/process-load-contests-from-file/process-load-contests-from-file.c \
+					./src/controllers/process-contest-metrics/process-contest-metrics.h \
+					./src/controllers/process-contest-metrics/process-contest-metrics.c \
 					./src/controllers/controllers.h
+
+SERVICES_FILES = 	./src/services/contest-metrics/contest-metrics.h \
+					./src/services/contest-metrics/contest-metrics.c
 
 compile: create-dependence-dirs
 	$(COMPILER) \
@@ -36,6 +41,7 @@ compile: create-dependence-dirs
 	$(CONTROLLERS_FILES) \
 	$(STRUCTURES_FILES) \
 	$(HELPERS_FILES) \
+	$(SERVICES_FILES) \
 	-o $(OUTPUT_FILE_PATH)
 
 create-dependence-dirs:

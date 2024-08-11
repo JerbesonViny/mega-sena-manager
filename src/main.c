@@ -49,6 +49,10 @@ void process_option(HashMap *hash_map, int option)
     {
         process_load_contests_from_file(hash_map);
     }
+    else if (option == 6)
+    {
+        process_contest_metrics(*hash_map);
+    }
     else if (option == 0)
     {
         system("clear");

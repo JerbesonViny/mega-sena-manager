@@ -6,5 +6,6 @@
 #include "process-search-contest/process-search-contest.h"
 #include "process-delete-contest/process-delete-contest.h"
 #include "process-load-contests-from-file/process-load-contests-from-file.h"
+#include "process-contest-metrics/process-contest-metrics.h"
 
 #endif
