@@ -7,19 +7,9 @@
 #include "controllers/controllers.h"
 #include "usecases/insert-contest/insert-contest.h"
 
-void display(Contest contest)
+void display_welcome()
 {
-    printf("<(id=%d, date=<(day=%d, month=%d, year=%d)>, luckyNumbers=[%d,%d,%d,%d,%d,%d])>\n",
-           contest.id,
-           contest.date.day,
-           contest.date.month,
-           contest.date.year,
-           contest.luckyNumbers[0],
-           contest.luckyNumbers[1],
-           contest.luckyNumbers[2],
-           contest.luckyNumbers[3],
-           contest.luckyNumbers[4],
-           contest.luckyNumbers[5]);
+    printf("\n========================================================\n          Welcome to the Mega Sena Manager, v1.0\n  Copyright (C) 2024, José Guerra & Jerbeson Rodrigues\n========================================================\n\n");
 }
 
 void display_features()
@@ -29,7 +19,6 @@ void display_features()
 
 void process_option(HashMap *hash_map, int option)
 {
-    // system("clear");
     if (option == 1)
     {
         process_insert_contest(hash_map);
@@ -56,7 +45,6 @@ void process_option(HashMap *hash_map, int option)
     }
     else if (option == 0)
     {
-        system("clear");
         printf("\xE2\x9C\x85 Sistema encerrado com sucesso!\n");
         exit(0);
     }
@@ -84,6 +72,8 @@ int main(void)
 
     int option = -1;
     // system("clear");
+
+    display_welcome();
 
     while (option != 0)
     {

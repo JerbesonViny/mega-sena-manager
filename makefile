@@ -11,11 +11,17 @@ HELPERS_FILES = ./src/helpers/files/files.h \
 				./src/helpers/strings/strings.c \
 				./src/helpers/nodes/nodes.h \
 				./src/helpers/nodes/nodes.c \
+				./src/helpers/sort/sort.h \
+				./src/helpers/sort/sort.c \
+				./src/helpers/integers/integers.h \
+				./src/helpers/integers/integers.c \
 				./src/helpers/helpers.h
 
 TYPE_FILES = ./src/types/date.h \
 				./src/types/contest.h \
 				./src/types/contest.c \
+				./src/types/lucky-number.h \
+				./src/types/sort.h \
 				./src/types/types.h
 
 STRUCTURES_FILES = 	./src/structures/hash-map.h \

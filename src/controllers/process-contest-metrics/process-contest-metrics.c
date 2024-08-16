@@ -29,6 +29,16 @@ void process_contest_metrics(const HashMap hash_map)
             printf("Quantidade de vezes que esse numero foi sorteado: %d\n", incidence);
             keep_receiving_values = 0;
         }
+        else if (option == 2)
+        {
+            display_top_ten_lucky_numbers(hash_map, DESCENDING);
+            keep_receiving_values = 0;
+        }
+        else if (option == 3)
+        {
+            display_top_ten_lucky_numbers(hash_map, ASCENDING);
+            keep_receiving_values = 0;
+        }
         else if (option == 4)
         {
             printf("Informe o ano que voce deseja buscar a quantidade de concursos nesse ano que foi informado: ");
