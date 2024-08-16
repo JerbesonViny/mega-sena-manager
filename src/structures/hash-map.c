@@ -72,6 +72,23 @@ Node *get_last_node(Node *current_node)
     return value;
 }
 
+Node *get_node_by_key(Node *current_node, int key)
+{
+    Node *node = current_node;
+
+    while (node != NULL)
+    {
+        if (node->key == key)
+        {
+            return node;
+        }
+
+        node = node->next;
+    }
+
+    return NULL;
+}
+
 int insert_in_hash_map(HashMap *hash_map, Node *new_node, int key)
 {
     if (hash_map->quantity_of_elements / (float)hash_map->quantity_of_spaces >= 7 / 10.0)
@@ -80,17 +97,24 @@ int insert_in_hash_map(HashMap *hash_map, Node *new_node, int key)
     }
 
     int index = hash(key, hash_map->quantity_of_spaces);
+    Node *node_filtered_by_key = get_node_by_key(hash_map->table[index], new_node->key);
 
     if (hash_map->table[index] == NULL)
     {
         hash_map->quantity_of_elements++;
         hash_map->table[index] = new_node;
     }
+    else if (node_filtered_by_key != NULL)
+    {
+        node_filtered_by_key->value = new_node->value;
+    }
     else
     {
         Node *last_node = get_last_node(hash_map->table[index]);
         last_node->next = malloc(sizeof(Node *));
+        new_node->previous = malloc(sizeof(Node *));
         last_node->next = new_node;
+        new_node->previous = last_node;
     }
 
     return index;
@@ -132,41 +156,41 @@ int delete_element_in_hash_map(HashMap *hash_map, const int key)
     int index = hash(key, hash_map->quantity_of_spaces);
 
     Node *node = table[index];
-    Node *previous = NULL;
 
     while (node)
     {
         if (node->key == key)
         {
             // Na raiz da tabela
-            if (node->next == NULL && previous == NULL)
+            if (node->next == NULL && node->previous == NULL)
             {
                 table[index] = NULL;
-                free(node);
+                hash_map->quantity_of_elements--;
             }
             // Na raiz da tabela, mas contem um proximo valor
-            else if (previous == NULL && node->next != NULL)
+            else if (node->previous == NULL && node->next != NULL)
             {
                 table[index] = node->next;
+                node->next->previous = NULL;
                 free(node);
             }
             // Ultimo valor da lista encadeada
-            else if (node->next == NULL && previous != NULL)
+            else if (node->next == NULL && node->previous != NULL)
             {
-                previous->next = NULL;
+                node->previous->next = NULL;
                 free(node);
             }
             // Em alguma posicao
             else
             {
-                previous->next = node->next;
+                node->previous->next = node->next;
+                node->next->previous = node->previous;
                 free(node);
             }
 
             return 1;
         }
 
-        previous = node;
         node = node->next;
     }
 

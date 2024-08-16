@@ -8,6 +8,7 @@ typedef struct Node
     int key;
     void *value;
     struct Node *next;
+    struct Node *previous;
 } Node;
 
 typedef struct HashMap
@@ -23,7 +24,7 @@ typedef struct SearchOutput
     void *value;
 } SearchOutput;
 
-HashMap make_hash_map();
+HashMap make_hash_map(int quantity_of_spaces);
 int insert_in_hash_map(HashMap *hash_map, Node *new_node, int key);
 SearchOutput search_in_hash_map(const HashMap hash_map, int key);
 int delete_element_in_hash_map(HashMap *hash_map, const int key);
