@@ -41,6 +41,8 @@ CONTROLLERS_FILES = ./src/controllers/insert-contest-controller/insert-contest-c
 					./src/controllers/load-contests-from-file-controller/load-contests-from-file-controller.c \
 					./src/controllers/contest-metrics-controller/contest-metrics-controller.h \
 					./src/controllers/contest-metrics-controller/contest-metrics-controller.c \
+					./src/controllers/export-data-controller/export-data-controller.h \
+					./src/controllers/export-data-controller/export-data-controller.c \
 					./src/controllers/controllers.h
 
 SERVICES_FILES = 	./src/services/contest-metrics/contest-metrics.h \
@@ -52,6 +54,8 @@ USECASES_FILES =	./src/usecases/insert-contest/insert-contest.h \
 					./src/usecases/load-contests-from-file/load-contests-from-file.c \
 					./src/usecases/delete-contest/delete-contest.h \
 					./src/usecases/delete-contest/delete-contest.c \
+					./src/usecases/export-data/export-data.h \
+					./src/usecases/export-data/export-data.c \
 					./src/usecases/usecases.h
 
 compile: create-dependence-dirs

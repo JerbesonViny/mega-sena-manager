@@ -7,5 +7,6 @@
 #include "delete-contest-controller/delete-contest-controller.h"
 #include "load-contests-from-file-controller/load-contests-from-file-controller.h"
 #include "contest-metrics-controller/contest-metrics-controller.h"
+#include "export-data-controller/export-data-controller.h"
 
 #endif

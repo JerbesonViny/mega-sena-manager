@@ -14,7 +14,7 @@ void display_welcome()
 
 void display_features()
 {
-    printf("--- Opcoes ---\n1 - Inserir concurso\n2 - Buscar concurso\n3 - Remover concurso\n4 - Listar concursos\n5 - Carregar concursos de arquivo\n6 - Apresentar estatisticas\n0 - Sair\n");
+    printf("--- Opcoes ---\n1 - Inserir concurso\n2 - Buscar concurso\n3 - Remover concurso\n4 - Listar concursos\n5 - Carregar concursos de arquivo\n6 - Apresentar estatisticas\n7 - Exportar dados\n0 - Sair\n");
 }
 
 void process_option(HashMap *hash_map, int option)
@@ -42,6 +42,10 @@ void process_option(HashMap *hash_map, int option)
     else if (option == 6)
     {
         contest_metrics_controller(*hash_map);
+    }
+    else if (option == 7)
+    {
+        export_data_controller(*hash_map);
     }
     else if (option == 0)
     {
