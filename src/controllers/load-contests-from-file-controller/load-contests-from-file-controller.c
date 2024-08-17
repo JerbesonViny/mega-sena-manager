@@ -2,26 +2,26 @@
 #include <stdlib.h>
 
 #include "../../helpers/helpers.h"
-#include "process-load-contests-from-file.h"
-#include "../../usecases/insert-contest/insert-contest.h"
+#include "load-contests-from-file-controller.h"
+#include "../../usecases/usecases.h"
 
-void process_load_contests_from_file(HashMap *hash_map)
+void load_contests_from_file_controller(HashMap *hash_map)
 {
     char file_path[2048] = "";
 
     printf("Informe o diretorio: ");
     scanf("%s", file_path);
 
-    FILE *file = fopen(file_path, "r");
+    LoadContestsFromFileOutput result = load_contests_from_file(file_path);
 
-    if (file == NULL)
+    if (result.quantity == -1)
     {
         printf("\xE2\x9D\x8C Arquivo nao encontrado.\n");
     }
     else
     {
-        printf("\xE2\x9C\x85 Arquivo encontrado!\n");
-        LoadContestsFromFileOutput result = load_contests_from_file(file_path);
+        printf("\xE2\x9C\x85 Arquivo encontrado. ");
+
         Contest *contests = result.contests;
 
         HashMap new_hash_map = make_hash_map(10);
@@ -32,6 +32,8 @@ void process_load_contests_from_file(HashMap *hash_map)
 
         *hash_map = new_hash_map;
 
-        fclose(file);
+        printf("%d concurso(s) carregado(s)!\n", result.quantity);
+
+        free(result.contests);
     }
 };

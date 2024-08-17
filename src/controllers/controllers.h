@@ -5,7 +5,7 @@
 #include "list-contests-controller/list-contests-controller.h"
 #include "search-contest-controller/search-contest-controller.h"
 #include "process-delete-contest/process-delete-contest.h"
-#include "process-load-contests-from-file/process-load-contests-from-file.h"
+#include "load-contests-from-file-controller/load-contests-from-file-controller.h"
 #include "process-contest-metrics/process-contest-metrics.h"
 
 #endif

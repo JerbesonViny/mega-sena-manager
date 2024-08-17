@@ -5,7 +5,7 @@
 #include "helpers/helpers.h"
 #include "structures/hash-map.h"
 #include "controllers/controllers.h"
-#include "usecases/insert-contest/insert-contest.h"
+#include "usecases/usecases.h"
 
 void display_welcome()
 {
@@ -37,7 +37,7 @@ void process_option(HashMap *hash_map, int option)
     }
     else if (option == 5)
     {
-        process_load_contests_from_file(hash_map);
+        load_contests_from_file_controller(hash_map);
     }
     else if (option == 6)
     {
@@ -67,7 +67,7 @@ int main(void)
 
     for (int i = 0; i < result.quantity; i++)
     {
-        int index = insert_contest(&hash_map, contests[i]);
+        insert_contest(&hash_map, contests[i]);
     }
 
     int option = -1;
