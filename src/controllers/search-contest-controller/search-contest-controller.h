@@ -1,5 +1,5 @@
-#ifndef PROCESS_SEARCH_CONTEST_H
-#define PROCESS_SEARCH_CONTEST_H
+#ifndef SEARCH_CONTEST_CONTROLLER_H
+#define SEARCH_CONTEST_CONTROLLER_H
 
 #include "../../structures/hash-map.h"
 

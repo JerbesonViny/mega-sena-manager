@@ -33,7 +33,7 @@ void process_option(HashMap *hash_map, int option)
     }
     else if (option == 4)
     {
-        process_list_contests(*hash_map);
+        list_contests_controller(*hash_map);
     }
     else if (option == 5)
     {

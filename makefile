@@ -31,8 +31,8 @@ STRUCTURES_FILES = 	./src/structures/hash-map.h \
 
 CONTROLLERS_FILES = ./src/controllers/insert-contest-controller/insert-contest-controller.h \
 					./src/controllers/insert-contest-controller/insert-contest-controller.c \
-					./src/controllers/process-list-contests/process-list-contests.h \
-					./src/controllers/process-list-contests/process-list-contests.c \
+					./src/controllers/list-contests-controller/list-contests-controller.h \
+					./src/controllers/list-contests-controller/list-contests-controller.c \
 					./src/controllers/search-contest-controller/search-contest-controller.h \
 					./src/controllers/search-contest-controller/search-contest-controller.c \
 					./src/controllers/process-delete-contest/process-delete-contest.h \
@@ -47,9 +47,7 @@ SERVICES_FILES = 	./src/services/contest-metrics/contest-metrics.h \
 					./src/services/contest-metrics/contest-metrics.c
 
 USECASES_FILES =	./src/usecases/insert-contest/insert-contest.h \
-					./src/usecases/insert-contest/insert-contest.c \
-					./src/usecases/list-contests/list-contests.h \
-					./src/usecases/list-contests/list-contests.c
+					./src/usecases/insert-contest/insert-contest.c
 
 compile: create-dependence-dirs
 	$(COMPILER) \

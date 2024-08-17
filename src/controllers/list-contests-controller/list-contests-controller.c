@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-#include "list-contests.h"
+#include "list-contests-controller.h"
 #include "../../helpers/display-contest/display-contest.h"
 
-void list_contests(const HashMap hash_map)
+void list_contests_controller(const HashMap hash_map)
 {
     printf("| %-25s |", "ID");
     printf("| %-25s |", "Data");
@@ -24,4 +25,4 @@ void list_contests(const HashMap hash_map)
             node = node->next;
         }
     }
-}
+};

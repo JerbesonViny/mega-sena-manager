@@ -2,7 +2,7 @@
 #define CONTROLLERS_H
 
 #include "insert-contest-controller/insert-contest-controller.h"
-#include "process-list-contests/process-list-contests.h"
+#include "list-contests-controller/list-contests-controller.h"
 #include "search-contest-controller/search-contest-controller.h"
 #include "process-delete-contest/process-delete-contest.h"
 #include "process-load-contests-from-file/process-load-contests-from-file.h"
