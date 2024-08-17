@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "process-insert-contest.h"
+#include "insert-contest-controller.h"
 #include "../../usecases/insert-contest/insert-contest.h"
 
-void process_insert_contest(HashMap *hash_map)
+void insert_contest_controller(HashMap *hash_map)
 {
     int id, day, month, year,
         first_lucky_number,
@@ -16,6 +16,7 @@ void process_insert_contest(HashMap *hash_map)
 
     int keep_receiving_input = 1;
 
+    // deve continuar solicitando um id valido enquanto o mesmo nao tiver sido apssado
     while (keep_receiving_input)
     {
         printf("Informe o id do concurso que vai ser inserido: ");
@@ -68,7 +69,7 @@ void process_insert_contest(HashMap *hash_map)
 
         int created = insert_contest(hash_map, contest);
 
-        if (created)
+        if (created >= 0)
         {
             printf("\xE2\x9C\x85 Concurso inserido com sucesso!\n");
         }

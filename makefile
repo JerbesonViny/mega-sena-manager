@@ -27,8 +27,8 @@ TYPE_FILES = ./src/types/date.h \
 STRUCTURES_FILES = 	./src/structures/hash-map.h \
 					./src/structures/hash-map.c
 
-CONTROLLERS_FILES = ./src/controllers/process-insert-contest/process-insert-contest.h \
-					./src/controllers/process-insert-contest/process-insert-contest.c \
+CONTROLLERS_FILES = ./src/controllers/insert-contest-controller/insert-contest-controller.h \
+					./src/controllers/insert-contest-controller/insert-contest-controller.c \
 					./src/controllers/process-list-contests/process-list-contests.h \
 					./src/controllers/process-list-contests/process-list-contests.c \
 					./src/controllers/process-search-contest/process-search-contest.h \

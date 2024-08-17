@@ -21,7 +21,7 @@ void process_option(HashMap *hash_map, int option)
 {
     if (option == 1)
     {
-        process_insert_contest(hash_map);
+        insert_contest_controller(hash_map);
     }
     else if (option == 2)
     {

@@ -1,7 +1,7 @@
 #ifndef CONTROLLERS_H
 #define CONTROLLERS_H
 
-#include "process-insert-contest/process-insert-contest.h"
+#include "insert-contest-controller/insert-contest-controller.h"
 #include "process-list-contests/process-list-contests.h"
 #include "process-search-contest/process-search-contest.h"
 #include "process-delete-contest/process-delete-contest.h"
