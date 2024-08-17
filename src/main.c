@@ -29,7 +29,7 @@ void process_option(HashMap *hash_map, int option)
     }
     else if (option == 3)
     {
-        process_delete_contest(hash_map);
+        delete_contest_controller(hash_map);
     }
     else if (option == 4)
     {
@@ -41,7 +41,7 @@ void process_option(HashMap *hash_map, int option)
     }
     else if (option == 6)
     {
-        process_contest_metrics(*hash_map);
+        contest_metrics_controller(*hash_map);
     }
     else if (option == 0)
     {

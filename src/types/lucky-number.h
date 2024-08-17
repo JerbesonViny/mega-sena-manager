@@ -1,10 +1,10 @@
 #ifndef LUCKY_NUMBER_TYPE_H
 #define LUCKY_NUMBER_TYPE_H
 
-typedef struct BestLuckyNumber
+typedef struct LuckyNumberIncidence
 {
     int lucky_number;
     int incidence;
-} BestLuckyNumber;
+} LuckyNumberIncidence;
 
 #endif

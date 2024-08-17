@@ -16,10 +16,10 @@ Node *make_contest_node(const Contest constest)
     return node;
 }
 
-Node *make_best_lucky_number_node(const BestLuckyNumber best_lucky_number)
+Node *make_best_lucky_number_node(const LuckyNumberIncidence best_lucky_number)
 {
     Node *node = malloc(sizeof(Node));
-    BestLuckyNumber *value = malloc(sizeof(BestLuckyNumber));
+    LuckyNumberIncidence *value = malloc(sizeof(LuckyNumberIncidence));
     value->lucky_number = best_lucky_number.lucky_number;
     value->incidence = best_lucky_number.incidence;
 

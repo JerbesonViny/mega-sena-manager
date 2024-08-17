@@ -13,8 +13,8 @@ typedef struct Node
 
 typedef struct HashMap
 {
-    int quantity_of_elements;
-    int quantity_of_spaces;
+    int quantity_of_elements; /**< Quantidade de elementos na raiz da tabela de dispersao. */
+    int quantity_of_spaces;   /**< Quantidade de espacos da tabela de dispersao. */
     Node **table;
 } HashMap;
 
@@ -55,5 +55,21 @@ int insert_in_hash_map(HashMap *hash_map, Node *new_node, int key);
  * valor foi encontrado e o outro com um ponteiro que contem o valor.
  */
 SearchOutput search_in_hash_map(const HashMap hash_map, int key);
+/**
+ * @brief Deleta valor na tabela de dispersao baseado em uma chave.
+ *
+ * Esta funcao recebe dois parametros,
+ * sendo a tabela de dispersao que contem valores, e uma chave que vai ser usada para apagar o valor
+ * que tiver uma chave igual.
+ *
+ * A mesma tem como responsabilidade deletar um valor na tabela de dispersao baseada em uma chave.
+ *
+ * @param[in] HashMap*      hash_map: Endereco de memoria da tabela de dispersao.
+ * @param[in] int           key: Chave que vai ser utilizada para busca do elemento na tabela.
+ * @return                  int: Indica se o elemento foi apagado ou nao.
+ *
+ *
+ * @note Se retornar 0, nenhum elemento foi apagado, caso retornar 1, um elemento foi apagado.
+ */
 int delete_element_in_hash_map(HashMap *hash_map, const int key);
 #endif

@@ -2,7 +2,7 @@
 
 #include "../integers/integers.h"
 
-void insertion_sort(BestLuckyNumber **numbers, int quantity_of_values, SortOrder sort_order)
+void insertion_sort(LuckyNumberIncidence **numbers, int quantity_of_values, SortOrder sort_order)
 {
     if (quantity_of_values <= 1)
     {
@@ -13,7 +13,7 @@ void insertion_sort(BestLuckyNumber **numbers, int quantity_of_values, SortOrder
 
     for (int current_position = 1; current_position < quantity_of_values; current_position++)
     {
-        BestLuckyNumber *current_value = numbers[current_position];
+        LuckyNumberIncidence *current_value = numbers[current_position];
         int left_position = current_position - 1;
 
         while (left_position >= 0 && compare_function(numbers[left_position]->incidence, current_value->incidence))

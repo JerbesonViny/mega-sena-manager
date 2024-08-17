@@ -35,12 +35,12 @@ CONTROLLERS_FILES = ./src/controllers/insert-contest-controller/insert-contest-c
 					./src/controllers/list-contests-controller/list-contests-controller.c \
 					./src/controllers/search-contest-controller/search-contest-controller.h \
 					./src/controllers/search-contest-controller/search-contest-controller.c \
-					./src/controllers/process-delete-contest/process-delete-contest.h \
-					./src/controllers/process-delete-contest/process-delete-contest.c \
+					./src/controllers/delete-contest-controller/delete-contest-controller.h \
+					./src/controllers/delete-contest-controller/delete-contest-controller.c \
 					./src/controllers/load-contests-from-file-controller/load-contests-from-file-controller.h \
 					./src/controllers/load-contests-from-file-controller/load-contests-from-file-controller.c \
-					./src/controllers/process-contest-metrics/process-contest-metrics.h \
-					./src/controllers/process-contest-metrics/process-contest-metrics.c \
+					./src/controllers/contest-metrics-controller/contest-metrics-controller.h \
+					./src/controllers/contest-metrics-controller/contest-metrics-controller.c \
 					./src/controllers/controllers.h
 
 SERVICES_FILES = 	./src/services/contest-metrics/contest-metrics.h \
@@ -50,6 +50,8 @@ USECASES_FILES =	./src/usecases/insert-contest/insert-contest.h \
 					./src/usecases/insert-contest/insert-contest.c \
 					./src/usecases/load-contests-from-file/load-contests-from-file.h \
 					./src/usecases/load-contests-from-file/load-contests-from-file.c \
+					./src/usecases/delete-contest/delete-contest.h \
+					./src/usecases/delete-contest/delete-contest.c \
 					./src/usecases/usecases.h
 
 compile: create-dependence-dirs

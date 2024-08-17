@@ -24,7 +24,7 @@ void insert_contest_controller(HashMap *hash_map)
 
         if (search_in_hash_map(*hash_map, id).has_value)
         {
-            printf("Existe um concurso com esse ID! Tente novamente!");
+            printf("Existe um concurso com esse ID! Tente novamente!\n");
             continue;
         }
 

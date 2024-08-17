@@ -1,14 +1,14 @@
 #include <stdio.h>
 
-#include "process-contest-metrics.h"
+#include "contest-metrics-controller.h"
 #include "../../services/contest-metrics/contest-metrics.h"
 
 void display_metrics_options()
 {
-    printf("--- Metricas ---\n1 - Incidencia de um numero da sorte\n2 - Top 10 numeros mais sorteados\n3 - Top 10 numeros menos sorteados\n4 - Quantidade de concursos em um determinado ano\n");
+    printf("--- Metricas ---\n1 - Incidencia de um numero da sorte\n2 - Top 10 numeros mais sorteados\n3 - Top 10 numeros menos sorteados\n4 - Quantidade de concursos em um determinado ano\n0 - Voltar\n");
 }
 
-void process_contest_metrics(const HashMap hash_map)
+void contest_metrics_controller(const HashMap hash_map)
 {
     int number, option = -1, keep_receiving_values = 1;
 
@@ -31,11 +31,13 @@ void process_contest_metrics(const HashMap hash_map)
         }
         else if (option == 2)
         {
+            // mostra os dez melhores numeros da sorte
             display_top_ten_lucky_numbers(hash_map, DESCENDING);
             keep_receiving_values = 0;
         }
         else if (option == 3)
         {
+            // mostra os dez piores numeros da sorte
             display_top_ten_lucky_numbers(hash_map, ASCENDING);
             keep_receiving_values = 0;
         }
@@ -47,6 +49,11 @@ void process_contest_metrics(const HashMap hash_map)
             int incidence = get_number_of_contests_in_year(hash_map, number);
 
             printf("Quantidade de concursos feitos no ano informado (%04d): %d\n", number, incidence);
+            keep_receiving_values = 0;
+        }
+        else if (option == 0)
+        {
+            printf("Voltando para o menu anterior...\n");
             keep_receiving_values = 0;
         }
         else
