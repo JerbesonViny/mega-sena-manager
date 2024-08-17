@@ -1,0 +1,8 @@
+Integrantes:
+
+- José de Barros Guerra Neto
+- Jerbeson Vinycius Sousa Rodrigues
+
+Instruções para executar o projeto
+
+- Os passos estão no README.md
