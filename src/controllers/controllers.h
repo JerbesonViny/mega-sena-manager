@@ -3,7 +3,7 @@
 
 #include "insert-contest-controller/insert-contest-controller.h"
 #include "process-list-contests/process-list-contests.h"
-#include "process-search-contest/process-search-contest.h"
+#include "search-contest-controller/search-contest-controller.h"
 #include "process-delete-contest/process-delete-contest.h"
 #include "process-load-contests-from-file/process-load-contests-from-file.h"
 #include "process-contest-metrics/process-contest-metrics.h"

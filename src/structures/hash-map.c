@@ -132,10 +132,9 @@ SearchOutput search_in_hash_map(const HashMap hash_map, int key)
     }
 
     Node *node = hash_map.table[index];
-    int iterations = 0;
     while (node)
     {
-        iterations++;
+        // verificando se a chave do no atual bate com a chave buscada
         if (node->key == key)
         {
             output.has_value = 1;

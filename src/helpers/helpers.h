@@ -6,5 +6,6 @@
 #include "nodes/nodes.h"
 #include "integers/integers.h"
 #include "sort/sort.h"
+#include "display-contest/display-contest.h"
 
 #endif

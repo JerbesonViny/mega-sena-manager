@@ -25,7 +25,7 @@ void process_option(HashMap *hash_map, int option)
     }
     else if (option == 2)
     {
-        process_search_contest(*hash_map);
+        search_contest_controller(*hash_map);
     }
     else if (option == 3)
     {

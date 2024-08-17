@@ -15,6 +15,8 @@ HELPERS_FILES = ./src/helpers/files/files.h \
 				./src/helpers/sort/sort.c \
 				./src/helpers/integers/integers.h \
 				./src/helpers/integers/integers.c \
+				./src/helpers/display-contest/display-contest.h \
+				./src/helpers/display-contest/display-contest.c \
 				./src/helpers/helpers.h
 
 TYPE_FILES = ./src/types/date.h \
@@ -31,8 +33,8 @@ CONTROLLERS_FILES = ./src/controllers/insert-contest-controller/insert-contest-c
 					./src/controllers/insert-contest-controller/insert-contest-controller.c \
 					./src/controllers/process-list-contests/process-list-contests.h \
 					./src/controllers/process-list-contests/process-list-contests.c \
-					./src/controllers/process-search-contest/process-search-contest.h \
-					./src/controllers/process-search-contest/process-search-contest.c \
+					./src/controllers/search-contest-controller/search-contest-controller.h \
+					./src/controllers/search-contest-controller/search-contest-controller.c \
 					./src/controllers/process-delete-contest/process-delete-contest.h \
 					./src/controllers/process-delete-contest/process-delete-contest.c \
 					./src/controllers/process-load-contests-from-file/process-load-contests-from-file.h \
